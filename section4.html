@@ -60,51 +60,38 @@
 
 <body>
     <header>
-        <h1>一、两种文件格式：固定格式和自由格式</h1>
+        <h1>四、简单的输入输出语句</h1>
     </header>
     <section>
         <a href="index.html" class="home-link">返回首页</a>
-        <p>首先要注意Fortran程序是不区分大小写的。</p>
-        <p>Fortran程序有两种书写格式，分别对应两种文件格式。其中固定格式的文件后缀是.f（或.for），自由格式的文件后缀是.f90</p>
-        <p>但两种格式都要求程序由"program ***"开始（***代指程序名称），并以"end program"结束。</p>
-        <h2>固定格式</h2>
-        <p>第1-5列：标号区。注释符列，用C或*表示；
-            第6列：续行标志区，只要这一列有字母，则表示它是上行的继续；
-            第7-72列：语句部分，每行只能有一个赋值计算；
-            第73-80列：注释区。</p>
-        <p>
-            下面是一个简单的例子：
+        <h2>输入语句</h2>
+        <p>这里先介绍Fortran的表控输入（自由格式），即用户不必指定输入数据的格式。<br />
+            示例：<br />
         </p>
-        <textarea rows="10" cols="40">
-      PROGRAM EXAMPLE1
-C     THIS IS A COMMENT LINE
-      REAL A,B
-      READ(*,*) A
-      B=A+3
-      WRITE(*,*) B
-      END PROGRAM
-    </textarea>
-        <h2>自由格式</h2>
-        <p>自由书写格式要求与python语法要求比较相似，如果在一行写多个语句则需要在每个语句后加分号。</p>
-        <p>还是看一个例子：</p>
-        <textarea rows="10" cols="40">
-program example2
-    !This is a comment line
-    real a,b
-    read(*,*) a
-    b=a+1;b=b+2;
-    write(*,*) b
-end program
-    </textarea>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
+        <textarea rows="8" cols="40">
+READ(*,*) I,J,A,B
+READ* I,J,A,B
+        </textarea>
+        <h2>输出语句</h2>
+        <p>这里介绍两个输出语句，一个是print,一个是write。<br />
+            用法见示例：<br />
+        <textarea rows="8" cols="40">
+PRINT*,A,B
+PRINT*,"The coefficients of the Eq. are",A,"and",B
+WRITE(*,*) I,J
+        </textarea>
+        <p>注：1.print后的*号表示用表控格式输出（系统隐含格式）；<br/>
+        2.write后面括号里第一个*号表示输出设备号，*号（缺省值）表示从显示器上输出，第二个*号表示用表控格式输出。</p>
+        </p>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
     </section>
     <footer>
         <p>
-            @韦境量 本项目的<a href="https://github.com/jingliangwei/a-crush-course-for-Fortran">github</a>链接  
+            @韦境量 本项目的<a href="https://github.com/jingliangwei/a-crush-course-for-Fortran">github</a>链接
             如果您支持本项目别忘了在github上给个star哈
         </p>
     </footer>
