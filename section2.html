@@ -4,57 +4,7 @@
 <head>
     <title>两种文件格式：固定格式和自由格式</title>
     <meta charset="utf-8">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        header {
-            width: 100%;
-            background-color: #333;
-            color: #fff;
-            padding: 1em;
-            text-align: center;
-        }
-
-        section {
-            width: 80%;
-            padding: 20px;
-            margin: 10px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        footer {
-            width: 100%;
-            background-color: #333;
-            color: #fff;
-            font-size: 11px;
-            text-align: center;
-            padding: 15px;
-            position: fixed;
-            bottom: 0;
-        }
-
-        .home-link {
-            display: inline-block;
-            padding: 5px 10px;
-            background-color: #007bff;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-
-        .home-link:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
@@ -80,22 +30,22 @@
         </p>
         <p>声明变量的方式与其他语言相同，即“类型+变量名”</p>
         <p>下面是例子：</p>
-        <textarea rows="8" cols="40">
-integer a
-real b
-complex c
-character str*10
-logical judge
-                    </textarea>
+        <div class="code-container">
+<span class="keywordblue">integer</span> a
+<span class="keywordblue">real</span> b
+<span class="keywordblue">complex</span> c
+<span class="keywordblue">character</span> str*10
+<span class="keywordblue">logical</span> judge
+                    </div>
         <p>可以在声明变量的同时给变量赋予初值，但是需要在类型与变量名之间加双冒号，即“类型::变量名=初值</p>
         <p>下面是例子：</p>
-        <textarea rows="8" cols="40">
-integer::a=1
-real::b=2.0
-complex::c=(1.0,2.0)
-character(len=20)::str="fortran"
-logical::judge=.true
-        </textarea>
+        <div class="code-container">
+<span class="keywordblue">integer</span>::a=1
+<span class="keywordblue">real</span>::b=2.0
+<span class="keywordblue">complex</span>::c=(1.0,2.0)
+<span class="keywordblue">character</span>(len=20)::str=<span class="keywordbrown">"fortran"</span>
+<span class="keywordblue">logical</span>::judge=.true
+        </div>
         <p>注：1.对于字符变量，单引号与双引号等价<br/>
         2.Fortran默认以I,J,K,L,M,N开头的变量为integer（整型），以其他字母开头的变量为real（实型）。</p>
 

@@ -1,0 +1,95 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    padding: 1em;
+    text-align: center;
+}
+
+section {
+    width: 80%;
+    padding: 20px;
+    margin: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    font-size: 11px;
+    text-align: center;
+    padding: 15px;
+    position: fixed;
+    bottom: 0;
+}
+
+.home-link {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.home-link:hover {
+    background-color: #0056b3;
+}
+
+/* styles.css */
+.code-container {
+    font-family: 'Courier New', monospace;
+    /* Use a monospace font for code */
+    background-color: #f4f4f4;
+    /* Light gray background */
+    padding: 20px;
+    /* Add padding for better readability */
+    border-radius: 5px;
+    /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Add a subtle shadow */
+    line-height: 1.5;
+    /* Improve line spacing for better legibility */
+    overflow-x: auto;
+    /* Enable horizontal scroll if needed */
+    white-space: pre-wrap;
+    /* Preserve formatting and wrap long lines */
+}
+
+/* Fortran keywords highlighting */
+.code-container .keywordblue {
+    color: #007bffc6;
+    /* Blue color for keywords */
+    font-weight: bold;
+    /* Make keywords bold */
+}
+.code-container .keywordred {
+    color: #c300ffd8;
+    /* Blue color for keywords */
+    font-weight: bold;
+    /* Make keywords bold */
+}
+.code-container .keywordbrown {
+    color: #ff7300b5;
+    /* Blue color for keywords */
+    font-weight: bold;
+    /* Make keywords bold */
+}
+.code-container .keywordg {
+    color: #2a7b0cf9;
+    /* Blue color for keywords */
+    font-weight: bold;
+    /* Make keywords bold */
+}

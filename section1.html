@@ -4,57 +4,7 @@
 <head>
     <title>两种文件格式：固定格式和自由格式</title>
     <meta charset="utf-8">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        header {
-            width: 100%;
-            background-color: #333;
-            color: #fff;
-            padding: 1em;
-            text-align: center;
-        }
-
-        section {
-            width: 80%;
-            padding: 20px;
-            margin: 10px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        footer {
-            width: 100%;
-            background-color: #333;
-            color: #fff;
-            font-size: 11px;
-            text-align: center;
-            padding: 15px;
-            position: fixed;
-            bottom: 0;
-        }
-
-        .home-link {
-            display: inline-block;
-            padding: 5px 10px;
-            background-color: #007bff;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-
-        .home-link:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
@@ -75,27 +25,27 @@
         <p>
             下面是一个简单的例子：
         </p>
-        <textarea rows="10" cols="40">
-      PROGRAM EXAMPLE1
-C     THIS IS A COMMENT LINE
-      REAL A,B
-      READ(*,*) A
+        <div class="code-container">
+      <span class="keywordred">PROGRAM EXAMPLE1</span>
+<span class="keywordg">C     THIS IS A COMMENT LINE</span>
+      <span class="keywordblue">REAL</span> A,B
+      <span class="keywordred">READ</span>(*,*) A
       B=A+3
-      WRITE(*,*) B
-      END PROGRAM
-    </textarea>
+      <span class="keywordred">WRITE</span>(*,*) B
+      <span class="keywordred">END PROGRAM</span>
+        </div>
         <h2>自由格式</h2>
         <p>自由书写格式要求与python语法要求比较相似，如果在一行写多个语句则需要在每个语句后加分号。</p>
         <p>还是看一个例子：</p>
-        <textarea rows="10" cols="40">
-program example2
-    !This is a comment line
-    real a,b
-    read(*,*) a
+        <div class="code-container">
+<span class="keywordred">program example2</span>
+    <span class="keywordg">!This is a comment line</span>
+    <span class="keywordblue">real</span> a,b
+    <span class="keywordred">read</span>(*,*) a
     b=a+1;b=b+2;
-    write(*,*) b
-end program
-    </textarea>
+    <span class="keywordred">write</span>(*,*) b
+<span class="keywordred">end program</span>
+        </div>
     <br/>
     <br/>
     <br/>

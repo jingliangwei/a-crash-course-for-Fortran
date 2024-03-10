@@ -4,57 +4,7 @@
 <head>
     <title>两种文件格式：固定格式和自由格式</title>
     <meta charset="utf-8">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        header {
-            width: 100%;
-            background-color: #333;
-            color: #fff;
-            padding: 1em;
-            text-align: center;
-        }
-
-        section {
-            width: 80%;
-            padding: 20px;
-            margin: 10px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        footer {
-            width: 100%;
-            background-color: #333;
-            color: #fff;
-            font-size: 11px;
-            text-align: center;
-            padding: 15px;
-            position: fixed;
-            bottom: 0;
-        }
-
-        .home-link {
-            display: inline-block;
-            padding: 5px 10px;
-            background-color: #007bff;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-
-        .home-link:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
@@ -68,18 +18,18 @@
         <p>这里先介绍Fortran的表控输入（自由格式），即用户不必指定输入数据的格式。<br />
             示例：<br />
         </p>
-        <textarea rows="8" cols="40">
-READ(*,*) I,J,A,B
-READ* I,J,A,B
-        </textarea>
+        <div class="code-container">
+<span class="keywordred">READ</span>(*,*) I,J,A,B
+<span class="keywordred">READ</span>* I,J,A,B
+        </div>
         <h2>输出语句</h2>
         <p>这里介绍两个输出语句，一个是print,一个是write。<br />
             用法见示例：<br />
-        <textarea rows="8" cols="40">
-PRINT*,A,B
-PRINT*,"The coefficients of the Eq. are",A,"and",B
-WRITE(*,*) I,J
-        </textarea>
+        <div class="code-container">
+<span class="keywordred">PRINT</span>*,A,B
+<span class="keywordred">PRINT</span>*,<span class="keywordbrown">"The coefficients of the Eq. are"</span>,A,<span class="keywordbrown">"and"</span>,B
+<span class="keywordred">WRITE</span>(*,*) I,J
+        </div>
         <p>注：1.print后的*号表示用表控格式输出（系统隐含格式）；<br/>
         2.write后面括号里第一个*号表示输出设备号，*号（缺省值）表示从显示器上输出，第二个*号表示用表控格式输出。</p>
         </p>

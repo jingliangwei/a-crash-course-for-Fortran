@@ -4,57 +4,7 @@
 <head>
     <title>两种文件格式：固定格式和自由格式</title>
     <meta charset="utf-8">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        header {
-            width: 100%;
-            background-color: #333;
-            color: #fff;
-            padding: 1em;
-            text-align: center;
-        }
-
-        section {
-            width: 80%;
-            padding: 20px;
-            margin: 10px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        footer {
-            width: 100%;
-            background-color: #333;
-            color: #fff;
-            font-size: 11px;
-            text-align: center;
-            padding: 15px;
-            position: fixed;
-            bottom: 0;
-        }
-
-        .home-link {
-            display: inline-block;
-            padding: 5px 10px;
-            background-color: #007bff;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-
-        .home-link:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
@@ -85,12 +35,12 @@
         <h2>字符表达式</h2>
         <p>Fortran的字符串的联接需要用到字符运算符：并置 //<br />
             见如下例子：<br />
-            <textarea rows="8" cols="40">
-character name*10,addr*20,line*30
-read*,name,addr
-line='MR.'//name//'address'//addr
-print*,line
-            </textarea>
+            <div class="code-container">
+<span class="keywordblue">character</span> name*10,addr*20,line*30
+<span class="keywordred">read</span>*,name,addr
+line=<span class="keywordbrown">'MR.'</span>//name//<span class="keywordbrown">'address'</span>//addr
+<span class="keywordred">print</span>*,line
+            </div>
         </p>
         <h2>逻辑表达式</h2>
         <p>Fortran的逻辑运算符与C、C++不同，而是类似于python采用英文单词表示，但略有不同：<br/>
