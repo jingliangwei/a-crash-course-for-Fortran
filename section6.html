@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>分支结构：条件判断语句</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <header>
+        <h1>六、分支结构：条件判断语句</h1>
+    </header>
+    <section>
+        <a href="index.html" class="home-link">返回首页</a>
+        <h2>简单的逻辑条件语句</h2>
+        <p>
+            单句if语句，示例：
+            <div class="code-container">
+<span class="keywordred">if</span> (x==16) <span class="keywordred">print</span>*, <span class="keywordbrown">'x=16'</span>
+            </div><br />
+            注意单句if语句在if后面只能接一个执行语句
+        </p>
+        <h2>基本if-then-else语句</h2>
+        <p>
+            要想if判断后能对应执行多条语句，需采用这种语句，如下：
+            <div class="code-container">
+<span class="keywordred">if</span> (x==16) <span class="keywordred">then</span>
+    <span class="keywordred">print</span>*, <span class="keywordbrown">'x=16'</span>
+    <span class="keywordred">print</span>*, <span class="keywordbrown">'good job.'</span>
+<span class="keywordred">else</span>
+    <span class="keywordred">print</span>*, <span class="keywordbrown">'x is not equal to 16'</span>
+    <span class="keywordred">print</span>*, <span class="keywordbrown">'try again.'</span>
+<span class="keywordred">end if</span>
+</div><br />
+            其中else部分可以省略（即第4-6行）。
+        </p>
+        <h2>多路选择的if-then-else语句</h2>
+        <p>
+            要想if判断失败后继续进行别的判断，可以使用这种语句，如下：
+            <div class="code-container">
+<span class="keywordred">if</span> (x==16) <span class="keywordred">then</span>
+    <span class="keywordred">print</span>*, <span class="keywordbrown">'x=16'</span>
+    <span class="keywordred">print</span>*, <span class="keywordbrown">'good job.'</span>
+    <span class="keywordred">else if</span> (x==-16) <span class="keywordred">then</span>
+        <span class="keywordred">print</span>*, <span class="keywordbrown">'x=-16'</span>
+        <span class="keywordred">print</span>*, <span class="keywordbrown">'is ok.'</span>
+    <span class="keywordred">else if</span> (x==0) <span class="keywordred">then</span>
+        <span class="keywordred">print</span>*, <span class="keywordbrown">'x=0'</span>
+        <span class="keywordred">print</span>*, <span class="keywordbrown">'well.'</span>
+    <span class="keywordred">else</span>
+        <span class="keywordred">print</span>*, <span class="keywordbrown">'try again.'</span>
+<span class="keywordred">end if</span>
+</div><br />
+        </p>
+        <h2>case语句</h2>
+        <p>
+            也可以根据某一变量对应的不同情况直接进行分类，即使用case语句如下：
+            <div class="code-container">
+<span class="keywordred">select case</span> (x)
+    <span class="keywordred">case</span>(1)
+        <span class="keywordred">print</span>*, <span class="keywordbrown">'one.'</span>
+    <span class="keywordred">case</span>(2)
+        <span class="keywordred">print</span>*, <span class="keywordbrown">'two.'</span>
+    <span class="keywordred">case default</span>
+        <span class="keywordred">print</span>*, <span class="keywordbrown">'no.'</span>
+<span class="keywordred">end if</span>
+</div><br />
+            注意在选择表达式中（即x）的变量需要提前声明才可以正常编译。
+        </p>
+        
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+    </section>
+    <footer>
+        <p>
+            @韦境量 本项目的<a href="https://github.com/jingliangwei/a-crash-course-for-Fortran">github</a>链接
+        </p>
+    </footer>
+
+</body>
+
+</html>

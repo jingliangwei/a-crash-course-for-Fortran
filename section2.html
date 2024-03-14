@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>两种文件格式：固定格式和自由格式</title>
+    <title>变量类型和声明</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css">
 
@@ -14,6 +14,7 @@
     </header>
     <section>
         <a href="index.html" class="home-link">返回首页</a>
+        <h2>变量类型和声明</h2>
         <p>Fortran的变量一共有6种类型，分别是：
             <br />
             INTEGER（整型）
@@ -44,11 +45,18 @@
 <span class="keywordblue">real</span>::b=2.0
 <span class="keywordblue">complex</span>::c=(1.0,2.0)
 <span class="keywordblue">character</span>(len=20)::str=<span class="keywordbrown">"fortran"</span>
-<span class="keywordblue">logical</span>::judge=.true
+<span class="keywordblue">logical</span>::judge=<span class="keywordblue">.true.</span>
         </div>
         <p>注：1.对于字符变量，单引号与双引号等价<br/>
         2.Fortran默认以I,J,K,L,M,N开头的变量为integer（整型），以其他字母开头的变量为real（实型）。</p>
 
+        <h2>定义常量</h2>
+        <p>
+            Fortran提供了参数语句进行常量定义，用法如下：
+            <div class="code-container">
+<span class="keywordblue">parameter</span>(pi=3.14159)
+            </div>
+        </p>
         <br />
         <br />
         <br />
