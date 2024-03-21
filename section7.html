@@ -14,7 +14,8 @@
     </header>
     <section>
         <a href="index.html" class="home-link">返回首页</a>
-        <h2>当型循环</h2>
+        <h2>次数未知</h2>
+        <h3>当型循环</h3>
         <p>
             1.使用do while语句实现当型循环，当while后括号内为".true."时，重复执行循环体内的语句，如下：
             <div class="code-container">
@@ -26,6 +27,63 @@
 <span class="keywordred">end do</span>
 </div><br />
 
+            2.也可以采用有标号的格式，如下：
+            <div class="code-container">
+<span class="keywordblue">integer</span>::n=1
+<span class="keywordred">do 10 while</span> (n&lt;=50)
+    <span class="keywordred">print</span>*, <span class="keywordbrown">'now, n='</span>,n
+    <span class="keywordred">print</span>*, <span class="keywordbrown">'let us continue.'</span>
+    n=n+1
+10  <span class="keywordred">continue</span>
+<span class="keywordred">end</span>
+</div><br />
+
+            3.还可以借助if和go to 语句实现：
+            <div class="code-container">
+    <span class="keywordblue">integer</span>::n=1
+a   <span class="keywordred">if</span> (n&lt;=50) then
+        <span class="keywordred">print</span>*, <span class="keywordbrown">'now, n='</span>,n
+        <span class="keywordred">print</span>*, <span class="keywordbrown">'let us continue.'</span>
+        n=n+1
+        <span class="keywordred">go to</span> a
+    <span class="keywordred">end if</span>
+</div><br />
+
+        <h3>直到型循环</h3>
+        1.使用go to 语句实现：
+            <div class="code-container">
+    <span class="keywordblue">integer</span>::n=1
+a   <span class="keywordred">print</span>*, <span class="keywordbrown">'now, n='</span>,n
+    <span class="keywordred">print</span>*, <span class="keywordbrown">'let us continue.'</span>
+    n=n+1
+    <span class="keywordred">if</span>(n&lt;=50)<span class="keywordred">go to</span> a
+</div><br />
+        2.使用do和exit语句实现
+            <div class="code-container">
+<span class="keywordblue">integer</span>::n=1
+<span class="keywordred">do</span> 
+    <span class="keywordred">print</span>*, <span class="keywordbrown">'now, n='</span>,n
+    <span class="keywordred">print</span>*, <span class="keywordbrown">'let us continue.'</span>
+    n=n+1
+    <span class="keywordred">if</span> (n&lt;=50) exit
+<span class="keywordred">end do</span>
+</div><br />
+        <h2>次数已知</h2>
+        可以使用do 加上循环变量来进行指定次数的循环，如下：
+            <div class="code-container">
+<span class="keywordred">do</span> i = 1,5,1
+    <span class="keywordred">print</span>*, <span class="keywordbrown">'now, n='</span>,n
+    <span class="keywordred">print</span>*, <span class="keywordbrown">'let us continue.'</span>
+<span class="keywordred">end do</span>
+</div><br />
+        其中do语句后面的 i=1,5,1 表示设定循环变量i的初值为1，终值为5，步长为1。<br />
+        也可以使用如下带标号的格式：
+            <div class="code-container">
+<span class="keywordred">do</span>  10  i = 1,5,1
+    <span class="keywordred">print</span>*, <span class="keywordbrown">'now, n='</span>,n
+    <span class="keywordred">print</span>*, <span class="keywordbrown">'let us continue.'</span>
+10  <span class="keywordred">continue</span>
+</div><br />
         </p>
 
         <br />
