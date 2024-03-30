@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>输出格式</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <header>
+        <h1>八、输出格式</h1>
+    </header>
+    <section>
+        <a href="index.html" class="home-link">返回首页</a>
+    <p>
+        在Fortran中使用指定输出格式的方式如下：
+        
+        <div class="code-container">
+    <span class="keywordred">write</span>(u,n) 输出表列
+n   <span class="keywordred">format</span>(格式编辑符)
+        </div><br/>
+
+        u是指输出的设备号，*号代指系统隐含，一般为6（指显示器）。<br/>
+        n是指格式输出的标号（写在标号区），指定一个format语句与之对应，以进行格式说明（*号时为系统隐含格式）。
+
+        <h2>整型数的输出</h2>
+        <h3>I编辑符</h3>
+        格式（1）：<span class="inline-shortcode">[r]Iw</span><br/>
+        w为数值占的列数（字段宽度），例如：
+        <div class="code-container">
+    <span class="keywordred">write</span>(u,100) J,K,L
+100 <span class="keywordred">format</span>(1X,I3,I5,I7)
+        </div><br/>
+        表示J占3列，K占5列，L占7列输出，<span class="inline-shortcode">1X</span>是表示输出前控一个空格。<br/>
+        r表示重复系数，如下：
+        <div class="code-container">
+    a=12,b=23,c=123
+    <span class="keywordred">write</span>(u,100) a,b,c
+100 <span class="keywordred">format</span>(1X,2I2,I3)
+        </div><br/>
+        将会输出<span class="inline-shortcode">1223123</span>。<br/><br/>
+        格式（2）：<span class="inline-shortcode">[r]Iw.m</span><br/>
+        m表示输出的最少数字位数，不足的以0补齐。例如：
+        <div class="code-container">
+    a=10,b=-12,c=123
+    <span class="keywordred">write</span>(u,100) a,b,c
+100 <span class="keywordred">format</span>(1X,I3,I5.4,I7.5)
+        </div><br/>
+        将会输出<span class="inline-shortcode">`10-0012``00123</span>（这里<span class="inline-shortcode">`</span>代表空格）。<br/>
+        注：当字段宽度不足以显示变量的值时，会输出*号来填充该段字段宽度。
+
+        <h2>实型数的输出</h2>
+        <h3>F编辑符</h3>
+        用于输出小数，
+        一般格式：<span class="inline-shortcode">Fw.d</span><br/>
+        w表示字段宽度；d表示输出数据的小数位数。例如：
+        <div class="code-container">
+    a=15.8,b=-746.578,c=873.2
+    <span class="keywordred">write</span>(u,100) a,b,c
+100 <span class="keywordred">format</span>(1X,F6.1,F9.2,F7.2)
+        </div><br/>
+        将会输出<span class="inline-shortcode">```15.8``-746.58`873.20</span>（这里<span class="inline-shortcode">`</span>代表空格）。
+        <h3>E编辑符</h3>
+        用于输出指数，
+        一般格式：<span class="inline-shortcode">Ew.d</span><br/>
+        w表示字段宽度；d表示输出数据的小数位数。例如：
+        <div class="code-container">
+    a=15.8,b=-746.578,c=873.2
+    <span class="keywordred">write</span>(u,100) a,b,c
+100 <span class="keywordred">format</span>(1X,E15.6,E12.4,E9.3)
+        </div><br/>
+        将会输出<span class="inline-shortcode">```0.158000E+02``0.7466E+030.873E+03</span>（这里<span class="inline-shortcode">`</span>代表空格）。
+
+        <h2>双精度数的输出</h2>
+        <h3>D编辑符</h3>
+        用于双精度数的输出，一般格式为：<span class="inline-shortcode">Dw.d</span><br/>
+        w表示字段宽度；d表示输出数据的小数位数。例如：
+        <div class="code-container">
+    D1=1.378675893D+02
+    D2=1784.5D-03
+    <span class="keywordred">write</span>(u,100) D1,D2
+100 <span class="keywordred">format</span>(1X,D18.10,D18.7)
+        </div><br/>
+        将会输出<span class="inline-shortcode">``0.1378675842D+03`````0.1784500D+01</span>（这里<span class="inline-shortcode">`</span>代表空格）。
+        <br/>
+        双精度数也可以使用F编辑符输出（格式见实型数输出）。
+
+        <h2>字符型变量输出</h2>
+        <h3>A编辑符</h3>
+        有两种格式：<span class="inline-shortcode">Aw</span>或<span class="inline-shortcode">A</span><br/>
+        例如：
+        <div class="code-container">
+    s=<span class="keywordbrown">"China"</span>
+    <span class="keywordred">write</span>(u,100) s,s,s
+100 <span class="keywordred">format</span>(1x,a7,a3,a)
+        </div><br/>
+        将会输出<span class="inline-shortcode">```ChinaChiChina</span>（这里<span class="inline-shortcode">`</span>代表空格）。
+        <h3>撇号编辑符</h3>
+        格式如下：
+        <div class="code-container">
+    <span class="keywordred">write</span>(u,100)
+100 <span class="keywordred">format</span>("China")
+        </div><br/>
+        在格式编辑符中使用单引号和双引号的效果相同。
+
+        <h2>逻辑型变量输出</h2>
+        格式为：<span class="inline-shortcode">Lw</span><br/>
+        例如：
+        <div class="code-container">
+    <span class="keywordblue">logical</span>::judge=<span class="keywordblue">.true.</span>
+    <span class="keywordred">write</span>(u,200) judge
+200 <span class="keywordred">format</span>(L4)
+        </div><br/>
+        将会输出<span class="inline-shortcode">```T</span>（这里<span class="inline-shortcode">`</span>代表空格）。
+    
+    </p>
+
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+    </section>
+    <footer>
+        <p>
+            @韦境量 本项目的<a href="https://github.com/jingliangwei/a-crash-course-for-Fortran">github</a>链接
+        </p>
+    </footer>
+
+</body>
+
+</html>

@@ -93,3 +93,12 @@ footer {
     font-weight: bold;
     /* Make keywords bold */
 }
+
+.inline-shortcode {
+    font-family: monospace;
+    background-color: #f0f0f0;
+    padding: 3px;
+    border-radius: 3px;
+    white-space: nowrap;
+    display: inline;
+}
