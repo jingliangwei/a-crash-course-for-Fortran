@@ -30,14 +30,14 @@ n   <span class="keywordred">format</span>(格式编辑符)
         格式（1）：<span class="inline-shortcode">[r]Iw</span><br/>
         w为数值占的列数（字段宽度），例如：
         <div class="code-container">
-    <span class="keywordred">write</span>(u,100) J,K,L
+    <span class="keywordred">write</span>(*,100) J,K,L
 100 <span class="keywordred">format</span>(1X,I3,I5,I7)
         </div><br/>
         表示J占3列，K占5列，L占7列输出，<span class="inline-shortcode">1X</span>是表示输出前控一个空格。<br/>
         r表示重复系数，如下：
         <div class="code-container">
     a=12,b=23,c=123
-    <span class="keywordred">write</span>(u,100) a,b,c
+    <span class="keywordred">write</span>(*,100) a,b,c
 100 <span class="keywordred">format</span>(1X,2I2,I3)
         </div><br/>
         将会输出<span class="inline-shortcode">1223123</span>。<br/><br/>
@@ -45,7 +45,7 @@ n   <span class="keywordred">format</span>(格式编辑符)
         m表示输出的最少数字位数，不足的以0补齐。例如：
         <div class="code-container">
     a=10,b=-12,c=123
-    <span class="keywordred">write</span>(u,100) a,b,c
+    <span class="keywordred">write</span>(*,100) a,b,c
 100 <span class="keywordred">format</span>(1X,I3,I5.4,I7.5)
         </div><br/>
         将会输出<span class="inline-shortcode">`10-0012``00123</span>（这里<span class="inline-shortcode">`</span>代表空格）。<br/>
@@ -58,7 +58,7 @@ n   <span class="keywordred">format</span>(格式编辑符)
         w表示字段宽度；d表示输出数据的小数位数。例如：
         <div class="code-container">
     a=15.8,b=-746.578,c=873.2
-    <span class="keywordred">write</span>(u,100) a,b,c
+    <span class="keywordred">write</span>(*,100) a,b,c
 100 <span class="keywordred">format</span>(1X,F6.1,F9.2,F7.2)
         </div><br/>
         将会输出<span class="inline-shortcode">```15.8``-746.58`873.20</span>（这里<span class="inline-shortcode">`</span>代表空格）。
@@ -68,7 +68,7 @@ n   <span class="keywordred">format</span>(格式编辑符)
         w表示字段宽度；d表示输出数据的小数位数。例如：
         <div class="code-container">
     a=15.8,b=-746.578,c=873.2
-    <span class="keywordred">write</span>(u,100) a,b,c
+    <span class="keywordred">write</span>(*,100) a,b,c
 100 <span class="keywordred">format</span>(1X,E15.6,E12.4,E9.3)
         </div><br/>
         将会输出<span class="inline-shortcode">```0.158000E+02``0.7466E+030.873E+03</span>（这里<span class="inline-shortcode">`</span>代表空格）。
@@ -80,7 +80,7 @@ n   <span class="keywordred">format</span>(格式编辑符)
         <div class="code-container">
     D1=1.378675893D+02
     D2=1784.5D-03
-    <span class="keywordred">write</span>(u,100) D1,D2
+    <span class="keywordred">write</span>(*,100) D1,D2
 100 <span class="keywordred">format</span>(1X,D18.10,D18.7)
         </div><br/>
         将会输出<span class="inline-shortcode">``0.1378675842D+03`````0.1784500D+01</span>（这里<span class="inline-shortcode">`</span>代表空格）。
@@ -93,14 +93,14 @@ n   <span class="keywordred">format</span>(格式编辑符)
         例如：
         <div class="code-container">
     s=<span class="keywordbrown">"China"</span>
-    <span class="keywordred">write</span>(u,100) s,s,s
+    <span class="keywordred">write</span>(*,100) s,s,s
 100 <span class="keywordred">format</span>(1x,a7,a3,a)
         </div><br/>
         将会输出<span class="inline-shortcode">```ChinaChiChina</span>（这里<span class="inline-shortcode">`</span>代表空格）。
         <h3>撇号编辑符</h3>
         格式如下：
         <div class="code-container">
-    <span class="keywordred">write</span>(u,100)
+    <span class="keywordred">write</span>(*,100)
 100 <span class="keywordred">format</span>("China")
         </div><br/>
         在格式编辑符中使用单引号和双引号的效果相同。
