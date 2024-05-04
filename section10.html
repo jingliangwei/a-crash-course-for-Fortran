@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>数组输入输出</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <header>
+        <h1>十、数组输入输出</h1>
+    </header>
+    <section>
+        <a href="index.html" class="home-link">返回首页</a>
+        <h2>用数组名来输入输出整个数组</h2>
+    <p>
+        例如：
+        <div class="code-container">
+    <span class="keywordblue">integer</span> A(10),W(3,2)
+    <span class="keywordred">read</span>(*,*) A             <span class="keywordg">!连续输入10个整型数</span>
+    <span class="keywordred">read</span>(*,*) W             <span class="keywordg">!按列输入</span>
+    <span class="keywordred">write</span>(*,*) A,A(3),W     <span class="keywordg">!在一行中按列输出，不会输出换行符</span>
+
+    <span class="keywordred">write</span>(*,100) W
+100 <span class="keywordred">format</span>(1X,3I3) 
+    <span class="keywordred">write</span>(*,200) W
+200 <span class="keywordred">format</span>(1X,2I3) 
+
+    <span class="keywordg">!如果输入的W为：15 11</span>
+    <span class="keywordg">!             36 49</span>
+    <span class="keywordg">!             26 25</span>
+
+    <span class="keywordg">!按100格式输出为：</span>
+    <span class="keywordg">!15 36 26</span>
+    <span class="keywordg">!11 49 25</span>
+
+    <span class="keywordg">!按200格式输出为：</span>
+    <span class="keywordg">!15 36</span>
+    <span class="keywordg">!26 11</span>
+    <span class="keywordg">!49 25</span>
+        </div><br/>
+    </p>
+        <h2>利用DO循环进行数组输入输出</h2>
+        <p>
+            例如：
+        <div class="code-container">
+    <span class="keywordg">! 每行输入一个数</span>
+    <span class="keywordred">do</span> i = 1, 10
+        <span class="keywordred">read</span>(*,*) A(i)
+    <span class="keywordred">end do</span>
+    
+    <span class="keywordg">! 输出A(1)、A(3)、A(5)、A(7)、A(9)</span>
+    <span class="keywordred">do</span> i = 1, 10, 2
+        <span class="keywordred">write</span>(*,*) A(i)
+    <span class="keywordred">end do</span>
+
+    <span class="keywordg">! 二维数组使用嵌套do循环</span>
+    <span class="keywordblue">integer</span> W(2,3)
+    <span class="keywordred">do</span> 10 i=1,2
+        <span class="keywordred">do</span> 10 j=1,3
+            <span class="keywordred">read</span>(*,*) W(i,j)
+10  <span class="keywordred">continue</span>
+        </div><br/>
+        </p>
+        <h2>使用隐含do循环</h2>
+        <p>
+            例如：
+        <div class="code-container">
+    <span class="keywordblue">integer</span> A(3)
+    A=(/1,4,2/)
+    <span class="keywordred">write</span>(*,*) (3,A(i),i=1,3)
+    
+    <span class="keywordg">! 将会输出：</span>
+    <span class="keywordg">! 3   1   3   4   3   2</span>
+        </div><br/>
+            对多维数组使用隐含do循环的多层嵌套，如下：
+        <div class="code-container">
+    <span class="keywordred">write</span>(*,100) ( ( W(i,j) , j=1,3 ), i=1,2 )
+100 <span class="keywordred">format</span> (1X,3F6.2)
+        </div><br/>
+        注：1.内循环在前，用括号扩上再写外循环；<br/>
+        2.若无Format语句，一行输出6个元素。
+        </p>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+    </section>
+    <footer>
+        <p>
+            @韦境量 本项目的<a href="https://github.com/jingliangwei/a-crash-course-for-Fortran">github</a>链接
+        </p>
+    </footer>
+
+</body>
+
+</html>

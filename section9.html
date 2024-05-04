@@ -68,6 +68,17 @@
         数组的一部分可以用在表达式或者赋值语句中。<br/>
         运算的数组的大小形状应该保持相同。
         </p>
+        <h2>size()函数</h2>
+        <p>
+            <span class="inline-shortcode">size()</span>函数返回数组的大小或数组某一维度的大小。如下：
+        <div class="code-container">
+    <span class="keywordblue">real</span> A(2,3)
+    A = <span class="keywordblue">reshape</span>((/(i,i=1,6)/),(/2,3/))
+    <span class="keywordred">print</span>*,size(A),size(A,1),size(A,2)
+        </div><br/>
+        将会输出 <span class="inline-shortcode">6,2,3</span>
+
+        </p>
         <br />
         <br />
         <br />
