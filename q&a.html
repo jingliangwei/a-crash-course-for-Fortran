@@ -14,9 +14,263 @@
     </header>
     <section>
         <a href="index.html" class="home-link">返回首页</a>
+
+
+
+        <!-------------------------------------------------------------------------------------------->
+        <h2>1、初始化变量格式</h2>
+        <p>
+            <b>问题详情</b>：<br/>
+            在定义变量的同时进行赋值出现报错，代码如下：
+        <div class="code-container">
+<span class="keywordred">program</span> main
+    <span class="keywordblue">integer</span> a=12
+    <span class="keywordred">write</span>(*,*) a
+<span class="keywordred">end program</span>
+        </div><br/>
+        程序报错如下：
+        <div class="code-container">
+E:\vs code\fortran\demo.f90:2:13:
+
+     integer a=12
+             1
+Error: Syntax error in data declaration at (1)
+        </div><br/>
+        <b>问题原因</b>：<br/>
+        语法错误，在声明变量的同时给变量赋值需要在类型和变量名之间加两个冒号。<br/>
+        只需要将代码改成下面代码即可：
+        <div class="code-container">
+<span class="keywordred">program</span> main
+    <span class="keywordblue">integer</span>::a=12
+    <span class="keywordred">write</span>(*,*) a
+<span class="keywordred">end program</span>
+        </div><br/>
+        </p>
+        <!-------------------------------------------------------------------------------------------->
+
+        <!-------------------------------------------------------------------------------------------->
+        <h2>2、逻辑值的表示</h2>
+        <p>
+            <b>问题详情</b>：<br/>
+            在给逻辑型变量赋值的时候出现报错，代码如下：
+        <div class="code-container">
+<span class="keywordred">program</span> main
+    <span class="keywordblue">logical</span> judge
+    judge=.true
+    <span class="keywordred">print</span>*, judge
+<span class="keywordred">end program</span>
+        </div><br/>
+        程序报错如下：
+        <div class="code-container">
+E:\vs code\fortran\demo.f90:3:11:
+
+     judge=.true
+           1
+Error: Invalid character in name at (1)
+        </div><br/>
+        <b>问题原因</b>：<br/>
+        语法错误，逻辑值为<span class="inline-shortcode">.true.</span>和<span class="inline-shortcode">.false.</span>。<br/>
+        只需要将代码改成下面代码即可：
+        <div class="code-container">
+<span class="keywordred">program</span> main
+    <span class="keywordblue">logical</span> judge
+    judge=.true.
+    <span class="keywordred">print</span>*, judge
+<span class="keywordred">end program</span>
+        </div><br/>
+        </p>
+        <!-------------------------------------------------------------------------------------------->
+
+        <!-------------------------------------------------------------------------------------------->
+        <h2>3、<span class="inline-shortcode">implicit none</span>语句</h2>
+        <p>
+            <b>问题详情</b>：<br/>
+            原来可以正常运行的程序在第一行加上<span class="inline-shortcode">implicit none</span>语句就报错，代码如下：
+        <div class="code-container">
+<span class="keywordred">program</span> main
+    <span class="keywordblue">implicit none</span>
+    <span class="keywordblue">integer</span>::a=2
+    i=3
+    <span class="keywordred">print</span>*, a,i
+<span class="keywordred">end program</span>
+        </div><br/>
+        程序报错如下：
+        <div class="code-container">
+E:\vs code\fortran\demo.f90:4:5:
+
+     i=3
+     1
+Error: Symbol 'i' at (1) has no IMPLICIT type
+        </div><br/>
+        <b>问题原因</b>：<br/>
+        <span class="inline-shortcode">implicit none</span>语句是Fortran里的一条特殊语句，其作用是要求程序中的所有变量都需要事先声明才能使用，
+        所以在原来的程序里没有提前声明的变量i在加上<span class="inline-shortcode">implicit none</span>语句之后报错。<br/>
+        只需要补上变量i的声明即可：
+        <div class="code-container">
+<span class="keywordred">program</span> main
+    <span class="keywordblue">implicit none</span>
+    <span class="keywordblue">integer</span>::a=2,i
+    i=3
+    <span class="keywordred">print</span>*, a,i
+<span class="keywordred">end program</span>
+        </div><br/>
+        </p>
+        <!-------------------------------------------------------------------------------------------->
+
+        <!-------------------------------------------------------------------------------------------->
+        <h2>4、<span class="inline-shortcode">if-else</span>语句</h2>
+        <p>
+            <b>问题详情</b>：<br/>
+            在使用<span class="inline-shortcode">if-else</span>语句时报错，代码如下：
+        <div class="code-container">
+<span class="keywordred">program</span> main
+    <span class="keywordblue">integer</span> x
+    <span class="keywordred">read</span>(*,*) x
+    <span class="keywordred">if</span>(x>0) <span class="keywordred">then</span>
+        <span class="keywordred">print</span>*,<span class="keywordbrown">"x>0"</span>
+    <span class="keywordred">else if</span>(x&lt;0) 
+        <span class="keywordred">print</span>*,<span class="keywordbrown">"x&lt;0"</span>
+    <span class="keywordred">end if</span>
+<span class="keywordred">end program</span>
+        </div><br/>
+        程序报错如下：
+        <div class="code-container">
+E:\vs code\fortran\demo.f90:6:11:
+
+     else if(x&lt;0)
+           1
+Error: Unexpected junk after ELSE statement at (1)
+        </div><br/>
+        <b>问题原因</b>：<br/>
+        <span class="inline-shortcode">if-else</span>语句的格式问题，只有<span class="inline-shortcode">else</span>后面不用加<span class="inline-shortcode">then</span>，
+        <span class="inline-shortcode">if</span>和<span class="inline-shortcode">else if</span>后面都需要加<span class="inline-shortcode">then</span><br/>
+        只需要在<span class="inline-shortcode">else if</span>语句后补上<span class="inline-shortcode">then</span>即可：
+        <div class="code-container">
+<span class="keywordred">program</span> main
+    <span class="keywordblue">integer</span> x
+    <span class="keywordred">read</span>(*,*) x
+    <span class="keywordred">if</span>(x>0) <span class="keywordred">then</span>
+        <span class="keywordred">print</span>*,<span class="keywordbrown">"x>0"</span>
+    <span class="keywordred">else if</span>(x&lt;0) <span class="keywordred">then</span>
+        <span class="keywordred">print</span>*,<span class="keywordbrown">"x&lt;0"</span>
+    <span class="keywordred">end if</span>
+<span class="keywordred">end program</span>
+        </div><br/>
+        </p>
+        <!-------------------------------------------------------------------------------------------->
+
+        <!-------------------------------------------------------------------------------------------->
+        <h2>5、<span class="inline-shortcode">integer</span>溢出</h2>
+        <p>
+            <b>问题详情</b>：<br/>
+            给整型变量赋较大的值会报错，代码如下：
+        <div class="code-container">
+<span class="keywordred">program</span> main
+    <span class="keywordblue">integer</span>::a=2147483648
+    <span class="keywordred">print</span>*, a
+<span class="keywordred">end program</span>
+        </div><br/>
+        程序报错如下：
+        <div class="code-container">
+E:\vs code\fortran\demo.f90:2:25:
+
+     integer::x=2147483648
+                         1
+Error: Integer too big for its kind at (1). This check can be disabled with the option -fno-range-check
+        </div><br/>
+        <b>问题原因</b>：<br/>
+        Fortran默认的integer的kind值是4，即分配4个字节，只能表示大小在-2^31+1到2^31-1的数（2147483648=2^31），
+        为了表示或处理更大的数，可以选择修改integer的kind值，也可以换用double precision类型的变量。<br/>
+        这里演示第二种方法，将代码改成下面代码即可：
+        <div class="code-container">
+<span class="keywordred">program</span> main
+    <span class="keywordblue">double precision</span>::a=2147483648.0
+    <span class="keywordred">print</span>*, a
+<span class="keywordred">end program</span>
+        </div><br/>
+        </p>
+        <!-------------------------------------------------------------------------------------------->
+
+        <!-------------------------------------------------------------------------------------------->
+        <h2>6、一行的字符太长</h2>
+        <p>
+            <b>问题详情</b>：<br/>
+            写代码的时候有一行写得太长而报错，代码如下：
+        <div class="code-container">
+<span class="keywordred">program</span> main
+    <span class="keywordblue">integer</span>::x=1
+    <span class="keywordred">write</span>(*,100) x,x+1,x+2,x+3,x+4
+100 <span class="keywordred">format</span>(<span class="keywordbrown">"输入的数据中，和最大的相邻五个数是第"</span>,I2,<span class="keywordbrown">"个数，第"</span>,I2,<span class="keywordbrown">"个数，第"</span>,I2,<span class="keywordbrown">"个数，第"</span>,I2,<span class="keywordbrown">"个数，第"</span>,I2,<span class="keywordbrown">"个数。"</span>)
+<span class="keywordred">end program</span>
+        </div><br/>
+        程序报错如下：
+        <div class="code-container">
+E:\vs code\fortran\demo.f90:4:132:
+
+ 100 format("杈2,"涓2,"涓2,"涓2,"涓2,"涓01;31m1
+Error: Line truncated at (1) [-Werror=line-truncation]
+E:\vs code\fortran\demo.f90:4:132:
+
+ 100 format("杈2,"涓2,"涓2,"涓2,"涓2,"涓01;31m1
+Error: Unexpected end of format string in format string at (1)
+E:\vs code\fortran\demo.f90:3:34:
+
+     write(*,100) x,x+1,x+2,x+3,x+4
+                                  1
+Error: FORMAT label 100 at (1) not defined
+f951.exe: some warnings being treated as errors
+        </div><br/>
+        <b>问题原因</b>：<br/>
+        由于Fortran自由格式文件一行最长只能写132个字符，而一个中文字符占两个字符数，故原来的代码第4行的字符数超出了Fortran一行的最大字符数而报错。
+        只需要用连接符&换行即可。<br/>
+        将代码改成如下：
+        <div class="code-container">
+<span class="keywordred">program</span> main
+    <span class="keywordblue">integer</span>::x=1
+    <span class="keywordred">write</span>(*,100) x,x+1,x+2,x+3,x+4
+100 <span class="keywordred">format</span>(<span class="keywordbrown">"输入的数据中，和最大的相邻五个数是第"</span>, &
+    I2,<span class="keywordbrown">"个数，第"</span>,I2,<span class="keywordbrown">"个数，第"</span>,I2,<span class="keywordbrown">"个数，第"</span>,I2,<span class="keywordbrown">"个数，第"</span>,I2,<span class="keywordbrown">"个数。"</span>)
+<span class="keywordred">end program</span>
+        </div><br/>
+        </p>
+        <!-------------------------------------------------------------------------------------------->
+
+        <!-------------------------------------------------------------------------------------------->
+        <h2>7、输出异常</h2>
+        <p>
+            <b>问题详情</b>：<br/>
+            在使用format语句输出时，屏幕没有输出值而是显示*号，代码如下：
+        <div class="code-container">
+<span class="keywordred">program</span> main
+    <span class="keywordblue">integer</span> a,b
+    a=12
+    b=123456789
+    <span class="keywordred">write</span>(*,100) a,b
+100 <span class="keywordred">format</span>(I3,I5)
+<span class="keywordred">end program</span>
+        </div><br/>
+        程序输出如下：
+        <div class="code-container">
+E:\vs code\fortran> main.exe
+12*****
+        </div><br/>
+        <b>问题原因</b>：<br/>
+        输出*号是由于字段宽度不够，因为变量b应该占9个字符，而format语句只分配了5个字符的位置，不够显示，所以显示为*号。<br/>
+        只需要将代码改成下面代码即可：
+        <div class="code-container">
+<span class="keywordred">program</span> main
+    <span class="keywordblue">integer</span> a,b
+    a=12
+    b=123456789
+    <span class="keywordred">write</span>(*,100) a,b
+100 <span class="keywordred">format</span>(I3,I10)
+<span class="keywordred">end program</span>
+        </div><br/>
+        </p>
+        <!-------------------------------------------------------------------------------------------->
         
         <!-------------------------------------------------------------------------------------------->
-        <h2>在CodeBlock中使用<span class="inline-shortcode">call system("chcp 65001")</span>报错</h2>
+        <h2>8、在CodeBlock中使用<span class="inline-shortcode">call system("chcp 65001")</span>报错</h2>
         <p>
             <b>问题详情</b>：<br/>
             使用<span class="inline-shortcode">call system("chcp 65001")</span>解决CodeBlock输出中文乱码的问题时，在如下代码片段中出现报错：
@@ -57,7 +311,44 @@ Error: Unclassifiable statement at (1)
         <!-------------------------------------------------------------------------------------------->
 
         <!-------------------------------------------------------------------------------------------->
-        <h2>子例行程序参数值异常</h2>
+        <h2>9、打开文件失败</h2>
+        <p>
+            <b>问题详情</b>：<br/>
+            事先新建了一个temp.txt文件在同一个文件夹下，并写入一个整数保存，但在使用open语句打开文件时报错，代码如下：
+        <div class="code-container">
+<span class="keywordred">program</span> main
+    <span class="keywordblue">integer</span> x
+    <span class="keywordred">open</span>(1,file=<span class="keywordbrown">"temp"</span>)
+    <span class="keywordred">read</span>(1,*) x
+    <span class="keywordred">close</span>(1) 
+    <span class="keywordred">print</span>*, x 
+<span class="keywordred">end program</span>
+        </div><br/>
+        程序输出如下：
+        <div class="code-container">
+E:\vs code\fortran> main.exe
+At line 4 of file E:\vs code\fortran\demo.f90 (unit = 1, file = 'temp')
+Fortran runtime error: End of file
+
+Error termination. Backtrace:
+        </div><br/>
+        <b>问题原因</b>：<br/>
+        使用open语句打开文件时，file的文件名应该带上文件后缀，否则打开的就是temp文件而不是temp.txt文件。<br/>
+        只需要补上文件后缀即可：
+        <div class="code-container">
+<span class="keywordred">program</span> main
+    <span class="keywordblue">integer</span> x
+    <span class="keywordred">open</span>(1,file=<span class="keywordbrown">"temp.txt"</span>)
+    <span class="keywordred">read</span>(1,*) x
+    <span class="keywordred">close</span>(1) 
+    <span class="keywordred">print</span>*, x 
+<span class="keywordred">end program</span>
+        </div><br/>
+        </p>
+        <!-------------------------------------------------------------------------------------------->
+        
+        <!-------------------------------------------------------------------------------------------->
+        <h2>10、子例行程序参数值异常</h2>
         <p>
             <b>问题详情</b>：<br/>
             使用子例行程序时,在子例行程序运行之后的参数值与预期值不同，代码如下：
@@ -103,39 +394,6 @@ E:\vs code\fortran> main.exe
         </p>
         <!-------------------------------------------------------------------------------------------->
 
-        <!-------------------------------------------------------------------------------------------->
-        <h2>输出异常</h2>
-        <p>
-            <b>问题详情</b>：<br/>
-            在使用format语句输出时，屏幕没有输出值而是显示*号，代码如下：
-        <div class="code-container">
-<span class="keywordred">program</span> main
-    <span class="keywordblue">integer</span> a,b
-    a=12
-    b=123456789
-    <span class="keywordred">write</span>(*,100) a,b
-100 <span class="keywordred">format</span>(I3,I5)
-<span class="keywordred">end program</span>
-        </div><br/>
-        程序输出如下：
-        <div class="code-container">
-E:\vs code\fortran> main.exe
-12*****
-        </div><br/>
-        <b>问题原因</b>：<br/>
-        输出*号是由于字段宽度不够，因为变量b应该占9个字符，而format语句只分配了5个字符的位置，不够显示，所以显示为*号。<br/>
-        只需要将代码改成下面代码即可：
-        <div class="code-container">
-<span class="keywordred">program</span> main
-    <span class="keywordblue">integer</span> a,b
-    a=12
-    b=123456789
-    <span class="keywordred">write</span>(*,100) a,b
-100 <span class="keywordred">format</span>(I3,I10)
-<span class="keywordred">end program</span>
-        </div><br/>
-        </p>
-        <!-------------------------------------------------------------------------------------------->
 
 
 
