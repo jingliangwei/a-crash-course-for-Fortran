@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>数组函数和变长数组</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <header>
+        <h1>十一、数组函数和变长数组</h1>
+    </header>
+    <section>
+        <a href="index.html" class="home-link">返回首页</a>
+        <h2>内部数组操作函数</h2>
+    <p>
+        1.矩阵乘积函数
+        <div class="code-container">
+    <span class="keywordblue">matmul</span>(A,B)
+        </div><br/>
+        2.向量点乘函数
+        <div class="code-container">
+    <span class="keywordblue">dot_product</span>(A,B)
+        </div><br/>
+        3.矩阵转置函数
+        <div class="code-container">
+    <span class="keywordblue">transpose</span>(A)
+        </div><br/>
+        4.元素求和函数
+        <div class="code-container">
+    <span class="keywordblue">sum</span>(/4,5,6/)
+    <span class="keywordblue">sum</span>(A,dim=1)
+    <span class="keywordblue">sum</span>(A,mask=A>0.0)
+        </div><br/>
+        5.元素连乘求积函数
+        <div class="code-container">
+    <span class="keywordblue">product</span>(/4,5,6/)
+    <span class="keywordblue">product</span>(A,dim=1)
+    <span class="keywordblue">product</span>(A,mask=A>0.0)
+        </div><br/>
+        6.数组定位函数
+        <div class="code-container">
+    <span class="keywordblue">maxloc</span>(/3,8,5,8/)
+    <span class="keywordblue">minloc</span>(/3,8,5,8/)
+        </div><br/>
+
+    </p>
+    <h2>变长数组</h2>
+    <p>
+        先声明再分配大小，如下：
+        <div class="code-container">
+    <span class="keywordblue">integer</span>,allocatable A(:,:)
+    <span class="keywordblue">integer</span> i,j
+    <span class="keywordred">read</span>(*,*) i,j
+    allocate (A(i,j))
+        </div><br/>
+
+    </p>
+
+
+
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+    </section>
+    <footer>
+        <p>&copy; 韦境量 本项目的<a href="https://github.com/jingliangwei/a-crash-course-for-Fortran">github</a>链接</p>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>语句函数、函数子程序和子例行程序</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <header>
+        <h1>十二、语句函数、函数子程序和子例行程序</h1>
+    </header>
+    <section>
+        <a href="index.html" class="home-link">返回首页</a>
+        <h2>语句函数</h2>
+        <p>
+        语句函数的使用如下：
+        <div class="code-container">
+    f(x)=x**2-1
+    g(x)=2*x
+    <span class="keywordred">write</span>(*,*) f(12),g(i)
+        </div><br/>
+    </p>
+    <h2>函数子程序</h2>
+    <p>
+        函数子程序的使用如下：
+        <div class="code-container">
+<span class="keywordred">program</span> my_add
+    <span class="keywordblue">integer</span> a,b,sum
+    <span class="keywordred">read</span>(*,*) a,b
+    sum=my_add(a,b)
+    <span class="keywordred">write</span>(*,*) sum
+<span class="keywordred">end program</span>
+
+<span class="keywordblue">function</span> my_add(x,y)
+    <span class="keywordblue">integer</span> my_add
+    <span class="keywordblue">integer</span> x,y
+    my_add=x+y
+<span class="keywordblue">end function</span>
+        </div><br/>
+    </p>
+    <h2>子例行程序</h2>
+    <p>
+        子例行程序的使用如下：
+        <div class="code-container">
+<span class="keywordred">program</span> my_add
+    <span class="keywordblue">integer</span> a,b,sum
+    <span class="keywordred">read</span>(*,*) a,b
+    <span class="keywordred">call</span> my_add(a,b,sum)
+    <span class="keywordred">write</span>(*,*) sum
+<span class="keywordred">end program</span>
+
+<span class="keywordblue">subroutine</span> my_add(x,y,ans)
+    <span class="keywordblue">integer</span> x,y,ans
+    ans=x+y
+<span class="keywordblue">end subroutine</span>
+        </div><br/>
+    </p>
+
+
+
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+    </section>
+    <footer>
+        <p>&copy; 韦境量 本项目的<a href="https://github.com/jingliangwei/a-crash-course-for-Fortran">github</a>链接</p>
+    </footer>
+
+</body>
+
+</html>

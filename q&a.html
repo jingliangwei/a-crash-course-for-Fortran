@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>常见的问题</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <header>
+        <h1>常见的问题</h1>
+    </header>
+    <section>
+        <a href="index.html" class="home-link">返回首页</a>
+        
+        <!-------------------------------------------------------------------------------------------->
+        <h2>在CodeBlock中使用<span class="inline-shortcode">call system("chcp 65001")</span>报错</h2>
+        <p>
+            <b>问题详情</b>：<br/>
+            使用<span class="inline-shortcode">call system("chcp 65001")</span>解决CodeBlock输出中文乱码的问题时，在如下代码片段中出现报错：
+        <div class="code-container">
+    <span class="keywordblue">real</span> f,df,x,y
+
+    <span class="keywordred">call</span> system(<span class="keywordbrown">'chcp 65001'</span>)
+
+    f(x)=x**3-2*x+x-1
+    df(x)=3*x**2-4*x+1
+        </div><br/>
+        （在其他编辑器中如vscode也会报错）出现报错：
+        <div class="code-container">
+E:\vs code\fortran\9-2.f90:6:4:
+
+     f(x)=x**3-2*x**2+x-1
+    1
+Error: Unclassifiable statement at (1)
+E:\vs code\fortran\9-2.f90:7:4:
+
+     df(x)=3*x**2-4*x+1
+    1
+Error: Unclassifiable statement at (1)
+        </div><br/>
+        <b>问题原因</b>：<br/>
+        由于语句函数的声明属于非执行语句，而<span class="inline-shortcode">call system("chcp 65001")</span>为执行语句。
+        在Fortran中所有的执非行语句都要放到执行语句前面，否则会报错。
+        </p>
+        <!-------------------------------------------------------------------------------------------->
+
+        <!-------------------------------------------------------------------------------------------->
+        <h2>子例行程序参数值异常</h2>
+        <p>
+            <b>问题详情</b>：<br/>
+            使用子例行程序时,在子例行程序运行之后的参数值与预期值不同，代码如下：
+        <div class="code-container">
+<span class="keywordred">program</span> main
+    <span class="keywordblue">real</span> a,newa
+    <span class="keywordred">read</span>(*,*) a
+    <span class="keywordred">write</span>(*,*) <span class="keywordbrown">"a="</span>,a
+    <span class="keywordred">call</span> doublevalue(a,newa)
+    <span class="keywordred">write</span>(*,*) <span class="keywordbrown">"newa="</span>,newa
+<span class="keywordred">end program</span>
+    
+<span class="keywordblue">subroutine</span> doublevalue(x,newx)
+    <span class="keywordred">write</span>(*,*) <span class="keywordbrown">"Now double the value of a."</span>
+    newx=2*x
+<span class="keywordblue">end subroutine</span>
+        </div><br/>
+        当输入10时，本来应该输出20，但是输出结果是一个随机值，如下：
+        <div class="code-container">
+E:\vs code\fortran> main.exe
+10
+ a=   10.0000000
+ Now double the value of a.
+ newa=   2.80259693E-44
+        </div><br/>
+        <b>问题原因</b>：<br/>
+        在子例行程序中使用参数之前要先声明参数才能使用，即将代码改成下面代码即可：
+        <div class="code-container">
+<span class="keywordred">program</span> main
+    <span class="keywordblue">real</span> a,newa
+    <span class="keywordred">read</span>(*,*) a
+    <span class="keywordred">write</span>(*,*) <span class="keywordbrown">"a="</span>,a
+    <span class="keywordred">call</span> doublevalue(a,newa)
+    <span class="keywordred">write</span>(*,*) <span class="keywordbrown">"newa="</span>,newa
+<span class="keywordred">end program</span>
+    
+<span class="keywordblue">subroutine</span> doublevalue(x,newx)
+    <span class="keywordblue">real</span> x,newx    <span class="keywordg">!先声明所使用的参数</span>
+    <span class="keywordred">write</span>(*,*) <span class="keywordbrown">"Now double the value of a."</span>
+    newx=2*x
+<span class="keywordblue">end subroutine</span>
+        </div><br/>
+        </p>
+        <!-------------------------------------------------------------------------------------------->
+
+
+
+
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    </section>
+    <footer>
+        <p>&copy; 韦境量 本项目的<a href="https://github.com/jingliangwei/a-crash-course-for-Fortran">github</a>链接</p>
+    </footer>
+
+</body>
+
+</html>

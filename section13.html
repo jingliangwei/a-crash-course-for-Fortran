@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>文件操作</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <header>
+        <h1>十三、文件操作</h1>
+    </header>
+    <section>
+        <a href="index.html" class="home-link">返回首页</a>
+        <h2>内部文件</h2>
+        <p>
+            见下面例子：
+        <div class="code-container">
+<span class="keywordred">program</span> innerfile
+    <span class="keywordblue">character</span>(10) str1,str2
+    <span class="keywordblue">integer</span> no_str
+    <span class="keywordblue">real</span> value
+    str1=<span class="keywordbrown">"110"</span>
+    value=123.45
+    <span class="keywordred">read</span>(str1,100) no_str
+    <span class="keywordred">write</span>(str2,200) value
+    <span class="keywordred">write</span>(*,300) no_str,str2
+    <span class="keywordred">write</span>(*,400) str2,value
+100 <span class="keywordred">format</span>(I3)
+200 <span class="keywordred">format</span>(f10.3)
+300 <span class="keywordred">format</span>(1x,i3,1x,a10)
+400 <span class="keywordred">format</span>(1x,a10,1x,f10.3)
+<span class="keywordred">end program</span>
+        </div><br/>
+        </p>
+        <h2>外部文件</h2>
+        <p>
+            外部文件的一些操作函数如下：
+        <div class="code-container">
+    <span class="keywordred">open</span>([unit=]设备号,file=文件名[,err=语句标号][,status=属性])    <span class="keywordg">!打开文件</span>
+    <span class="keywordred">close</span>([unit=]设备号[,err=语句标号][,iostat=ix][,status=属性])  <span class="keywordg">!关闭文件</span>
+    <span class="keywordred">read</span>(设备号,格式说明[,end=语句标号]) 输入变量表                  <span class="keywordg">!读取文件</span>
+    <span class="keywordred">write</span>(设备号,格式说明) 输出变量表                               <span class="keywordg">!写入文件</span>
+    <span class="keywordred">rewind</span>(设备号)                                               <span class="keywordg">!指针回到文件开头</span>
+        </div><br/>
+        </p>
+
+
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+    </section>
+    <footer>
+        <p>&copy; 韦境量 本项目的<a href="https://github.com/jingliangwei/a-crash-course-for-Fortran">github</a>链接</p>
+    </footer>
+
+</body>
+
+</html>
