@@ -43,7 +43,16 @@ Error: Unclassifiable statement at (1)
         </div><br/>
         <b>问题原因</b>：<br/>
         由于语句函数的声明属于非执行语句，而<span class="inline-shortcode">call system("chcp 65001")</span>为执行语句。
-        在Fortran中所有的执非行语句都要放到执行语句前面，否则会报错。
+        在Fortran中所有的非执行语句都要放到执行语句前面，否则会报错。<br/>
+        将代码改成下面代码即可：
+        <div class="code-container">
+    <span class="keywordblue">real</span> f,df,x,y
+
+    f(x)=x**3-2*x+x-1
+    df(x)=3*x**2-4*x+1
+    
+    <span class="keywordred">call</span> system(<span class="keywordbrown">'chcp 65001'</span>)
+        </div><br/>
         </p>
         <!-------------------------------------------------------------------------------------------->
 
@@ -93,6 +102,42 @@ E:\vs code\fortran> main.exe
         </div><br/>
         </p>
         <!-------------------------------------------------------------------------------------------->
+
+        <!-------------------------------------------------------------------------------------------->
+        <h2>输出异常</h2>
+        <p>
+            <b>问题详情</b>：<br/>
+            在使用format语句输出时，屏幕没有输出值而是显示*号，代码如下：
+        <div class="code-container">
+<span class="keywordred">program</span> main
+    <span class="keywordblue">integer</span> a,b
+    a=12
+    b=123456789
+    <span class="keywordred">write</span>(*,100) a,b
+100 <span class="keywordred">format</span>(I3,I5)
+<span class="keywordred">end program</span>
+        </div><br/>
+        程序输出如下：
+        <div class="code-container">
+E:\vs code\fortran> main.exe
+12*****
+        </div><br/>
+        <b>问题原因</b>：<br/>
+        输出*号是由于字段宽度不够，因为变量b应该占9个字符，而format语句只分配了5个字符的位置，不够显示，所以显示为*号。<br/>
+        只需要将代码改成下面代码即可：
+        <div class="code-container">
+<span class="keywordred">program</span> main
+    <span class="keywordblue">integer</span> a,b
+    a=12
+    b=123456789
+    <span class="keywordred">write</span>(*,100) a,b
+100 <span class="keywordred">format</span>(I3,I10)
+<span class="keywordred">end program</span>
+        </div><br/>
+        </p>
+        <!-------------------------------------------------------------------------------------------->
+
+
 
 
 
